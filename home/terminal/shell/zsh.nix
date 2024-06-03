@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     pure-prompt
   ];
@@ -9,7 +9,7 @@
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
     localVariables = {
-      ZSH_AUTOSUGGEST_STRATEGY = [ "history" "completion" ];
+      ZSH_AUTOSUGGEST_STRATEGY = ["history" "completion"];
     };
     shellAliases = {
       vim = "nvim";

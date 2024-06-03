@@ -1,7 +1,12 @@
-{ self, inputs, homeImports, ... }: {
+{
+  self,
+  inputs,
+  homeImports,
+  ...
+}: {
   flake.nixosConfigurations = let
     inherit (inputs.nixpkgs.lib) nixosSystem;
-    specialArgs = { inherit inputs self; };
+    specialArgs = {inherit inputs self;};
   in {
     "muse" = nixosSystem {
       inherit specialArgs;

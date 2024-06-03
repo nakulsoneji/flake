@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     (catppuccin-sddm.override {
       flavor = "mocha";
@@ -13,4 +13,3 @@
     theme = "catppuccin-mocha";
   };
 }
-

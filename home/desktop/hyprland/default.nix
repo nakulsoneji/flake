@@ -1,8 +1,8 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     ./hyprland-env.nix
   ];
-  
+
   home.packages = with pkgs; [
     grim
     slurp
@@ -18,8 +18,8 @@
       enable = false;
     };
   };
-  
-  home.file.".config/hypr" = { 
+
+  home.file.".config/hypr" = {
     source = ./config;
     recursive = true;
   };

@@ -2,13 +2,21 @@
   description = "nakul's nixos flake";
 
   outputs = inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
 
       imports = [
         ./hosts
         ./home/profiles
+        ./pre-commit-hooks.nix
       ];
+
+      perSystem = {
+        config,
+        pkgs,
+        ... }: {
+        formatter = pkgs.alejandra;
+      };
     };
 
   inputs = {
@@ -28,6 +36,20 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.gitignore.follows = "gitignore";
+    };
+
+    flake-compat.url = "github:edolstra/flake-compat";
+
+    gitignore = {
+      url = "github:hercules-ci/gitignore.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

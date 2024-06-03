@@ -2,7 +2,7 @@
   imports = [
     ./terminal
   ];
-  
+
   home = {
     username = "nakul";
     homeDirectory = "/home/nakul";

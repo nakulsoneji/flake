@@ -1,4 +1,8 @@
-{ pkgs, inputs, ... }: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
   ];
@@ -8,7 +12,7 @@
     colorschemes.catppuccin.enable = true;
     opts = {
       tabstop = 2;
-      shiftwidth= 2;
+      shiftwidth = 2;
       shiftround = true;
       expandtab = true;
       pumheight = 10;
@@ -19,11 +23,11 @@
       cmp = {
         enable = true;
         settings = {
-          sources = [ 
-            { name = "nvim_lsp"; }
-            { name = "luasnip"; }
-            { name = "buffer"; }
-            { name = "path"; }
+          sources = [
+            {name = "nvim_lsp";}
+            {name = "luasnip";}
+            {name = "buffer";}
+            {name = "path";}
           ];
           formatting = {
             format = ''
@@ -64,7 +68,7 @@
         servers = {
           clangd = {
             enable = true;
-            cmd = [ "clangd" ];
+            cmd = ["clangd"];
           };
           nil_ls.enable = true;
         };
@@ -84,4 +88,3 @@
     };
   };
 }
-

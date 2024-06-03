@@ -6,4 +6,3 @@
     pulse.enable = true;
   };
 }
-
