@@ -19,7 +19,7 @@ in {
 
   flake = {
     homeConfigurations = {
-      muse = homeManagerConfiguration {
+      "nakul@muse" = homeManagerConfiguration {
         modules = homeImports.muse;
         inherit pkgs extraSpecialArgs;
       };

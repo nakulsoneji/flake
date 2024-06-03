@@ -9,6 +9,7 @@
         ./muse
         ../system
         ../system/programs/sddm.nix
+        ../system/programs/hyprland.nix
         {
           home-manager = {
             users.nakul.imports = homeImports.muse;
