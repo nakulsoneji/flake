@@ -1,0 +1,24 @@
+[global]
+frame_color = "#89B4FA"
+separator_color= frame
+origin = top-right
+offset=5x25
+width = 300
+height = 300
+min_icon_size = 32
+max_icon_size = 128
+font = JetBrainsMono Nerd Font 11
+gap_size = 10
+
+[urgency_low]
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+
+[urgency_normal]
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+
+[urgency_critical]
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+frame_color = "#FAB387"

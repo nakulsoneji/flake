@@ -1,0 +1,164 @@
+@import "mocha.css"; 
+
+* {
+  border: none;
+  border-radius: 0px;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: JetBrainsMono Nerd Font;
+  font-style: normal;
+  font-size: 14px;
+}
+
+window#waybar {
+  background-color: @base;
+    border-bottom: 2px solid @blue; 
+  transition-property: background-color;
+  transition-duration: .5s;
+
+}
+
+/*
+window#waybar.empty {
+background-color: transparent;
+}
+window#waybar.solo {
+background-color: #FFFFFF;
+}
+*/
+
+#workspaces {
+  background: @base;
+  margin: 10px 5px 10px 5px;
+  padding: 0px 5px 0px 5px;
+  border-radius: 0;
+  border: none;
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* add border-color to hover and border in order to stop annoying hover effect */
+#workspaces button {
+  padding: 0px 3px;
+  border-radius: 16px;
+  color: @blue;
+}
+
+#workspaces button:hover {
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  transition: none;
+}
+
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+
+#workspaces button.urgent {
+  color: @red;
+}
+
+#mode {
+  background-color: #64727D;
+  border-bottom: 3px solid #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#clock,
+#battery,
+#cpu,
+#pulseaudio
+#mpd {
+  padding: 0px 10px;
+  color: @blue;
+  background-color: @base;
+  border-radius: 16px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#battery {
+  margin-right: 5px;
+}
+
+#battery.charging, #battery.plugged {
+  color: @green;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+#battery.critical:not(.charging) {
+  color: @red;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#network.disconnected {
+  color: @red;
+}
+
+#pulseaudio.muted {
+  color: @red;
+}
+
+#custom-media {
+  background-color: @green;
+  color: @base;
+  min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+  background-color: @green;
+}
+
+#custom-media.custom-vlc {
+  background-color: #ffa000;
+}
+
+#temperature.critical {
+  color: @red;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  color: @red;
+}
+
+#mpd.disconnected {
+  background-color: #f53c3c;
+}
+
+#mpd.stopped {
+  background-color: #90b1b1;
+}
+
+#mpd.paused {
+  background-color: #51a37a;
+}
+#scratchpad {
+  background: rgba(0, 0, 0, 0.2);
+}

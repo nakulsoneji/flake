@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# Flags:
+#
+# r: region
+# s: screen
+#
+# f: file
+# c: clipboard
+
+if [[ $1 == rc ]]; then
+  TMPFILE=$(mktemp /tmp/grim-img-XXXXXX)
+
+  grim -g "$(slurp)" $TMPFILE
+  wl-copy < $TMPFILE
+  dunstify --icon=$TMPFILE "Screenshot copied"
+
+  rm "$TMPFILE"
+
+elif [[ $1 == rf ]]; then
+  IMGFILE=$(xdg-user-dir PICTURES)/Screenshots/$(date +"%s_grim.png")
+  
+  grim -g "$(slurp)" $IMGFILE
+  dunstify --icon=$IMGFILE "Screenshot saved"
+
+elif [[ $1 == sf ]]; then
+  IMGFILE=$(xdg-user-dir PICTURES)/Screenshots/$(date +"%s_grim.png")
+  
+  grim $IMGFILE
+  dunstify --icon=$IMGFILE "Screenshot saved"
+
+fi
