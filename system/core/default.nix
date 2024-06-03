@@ -1,4 +1,10 @@
 { lib, ... }: {
+  imports = [
+    ./boot.nix
+    ./users.nix
+    ./security.nix
+  ];
+
   i18n = {
     defaultLocale = "en_US.UTF-8";
 
