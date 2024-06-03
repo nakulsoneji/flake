@@ -12,7 +12,7 @@
         ../system/programs/hyprland.nix
         {
           home-manager = {
-            users.nakul.imports = homeImports.muse;
+            users.nakul.imports = homeImports."nakul@muse";
             extraSpecialArgs = specialArgs;
           };
         }

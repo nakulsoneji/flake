@@ -3,8 +3,7 @@ let
   extraSpecialArgs = {inherit inputs self;};
 
   homeImports = {
-    # note to self: change hostname to "hypr"
-    muse = [
+    "nakul@muse" = [
       ../.
       ./muse
     ];
@@ -20,7 +19,7 @@ in {
   flake = {
     homeConfigurations = {
       "nakul@muse" = homeManagerConfiguration {
-        modules = homeImports.muse;
+        modules = homeImports."nakul@muse";
         inherit pkgs extraSpecialArgs;
       };
     };
