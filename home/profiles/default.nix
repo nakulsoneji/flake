@@ -16,7 +16,9 @@ in {
   # this is here not to pass the input to hm, but rather the file that makes the hm configs
   _module.args = { inherit homeImports; };
 
-  flake = {
+  flake = { 
+    # note: this essentially does nothing, as we are using home-manager module, not standalone (see system/programs/home-manager.nix).
+    # because of this, if you try to do `nix run nixpkgs#home-manager -- switch --flake .#nakul@muse` it will only apply until next reboot
     homeConfigurations = {
       "nakul@muse" = homeManagerConfiguration {
         modules = homeImports."nakul@muse";
