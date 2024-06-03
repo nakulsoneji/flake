@@ -9,7 +9,7 @@
 
     ../../terminal/programs
     ../../terminal/shell/zsh.nix
-    ../../terminal/emulators/kitty.nix
+    ../../terminal/emulators/kitty
 
     ../../editors/nixvim.nix
   ];
