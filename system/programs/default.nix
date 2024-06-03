@@ -1,7 +1,7 @@
 {
   imports = [
     ./fonts.nix
-    # ./home-manager.nix
+    ./home-manager.nix
     ./zsh.nix
   ];
 
