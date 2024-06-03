@@ -1,4 +1,4 @@
-{ lib, self, inputs, ... }: {
+{
   imports = [
     ./terminal
   ];
