@@ -16,7 +16,17 @@
         pkgs,
         ...
       }: {
-        devShells.default = config.pre-commit.devShell;
+        devShells.default = pkgs.mkShell {
+          packages = [
+            pkgs.alejandra
+            pkgs.git
+          ];
+          name = "dots";
+          DIRENV_LOG_FORMAT = "";
+          shellHook = ''
+            ${config.pre-commit.installationScript}
+          '';
+        };
         formatter = pkgs.alejandra;
       };
     };
