@@ -17,9 +17,9 @@
         ...
       }: {
         devShells.default = pkgs.mkShell {
-          packages = [
-            pkgs.alejandra
-            pkgs.git
+          packages = with pkgs; [
+            alejandra
+            git
           ];
           name = "dots";
           DIRENV_LOG_FORMAT = "";
