@@ -6,6 +6,7 @@
     ../../desktop/waybar
 
     ../../programs/browsers/firefox.nix
+    ../../programs/social/discord.nix
 
     ../../terminal/programs
     ../../terminal/shell/zsh.nix
