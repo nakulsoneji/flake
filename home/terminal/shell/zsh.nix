@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    zsh-powerlevel10k
+    pure-prompt
   ];
 
   programs.zsh = {
@@ -15,8 +15,9 @@
       vim = "nvim";
     };
     initExtra = ''
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      source ~/.p10k.zsh
+      autoload -U promptinit; promptinit
+      prompt pure
+
       bindkey '^f' autosuggest-accept
       bindkey '^p' history-substring-search-up
       bindkey '^n' history-substring-search-down
@@ -29,5 +30,4 @@
       "ssh-agent"
     ];
   };
-  home.file.".p10k.zsh".source = ./zsh/p10k.zsh;
 }
