@@ -8,6 +8,7 @@
   # git is needed for flakes
   environment.systemPackages = with pkgs; [
     git
+    ripgrep
   ];
 
   nix.settings = {
