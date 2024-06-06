@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./nh.nix
     ./nixpkgs.nix
@@ -8,7 +12,6 @@
   # git is needed for flakes
   environment.systemPackages = with pkgs; [
     git
-    ripgrep
   ];
 
   nix.settings = {
