@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./nh.nix
     ./nixpkgs.nix
