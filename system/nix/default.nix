@@ -1,8 +1,13 @@
-{
+{pkgs, ...}: {
   imports = [
     ./nh.nix
     ./nixpkgs.nix
     ./substituters.nix
+  ];
+
+  # git is needed for flakes
+  environment.systemPackages = with pkgs; [
+    git
   ];
 
   nix.settings = {
