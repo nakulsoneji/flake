@@ -5,8 +5,7 @@
     ../../desktop/dunst
     ../../desktop/waybar
 
-    ../../programs/browsers/firefox.nix
-    ../../programs/social/discord.nix
+    ../../programs
 
     ../../terminal/programs
     ../../terminal/shell/zsh.nix

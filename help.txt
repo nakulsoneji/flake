@@ -1,0 +1,1 @@
+1. make sure that xdg.nix is imported for hyprland screenshot script, needs $XDG_SCREENSHOT_DIR set in xdg.nix

@@ -28,6 +28,9 @@
       marker = "#f5e0dc";
       prompt = "#cba6f7";
     };
+    defaultCommand = "fd --type f";
+    changeDirWidgetCommand = "fd --type d";
+    fileWidgetCommand = "fd --type f";
   };
 
   programs.ripgrep = {

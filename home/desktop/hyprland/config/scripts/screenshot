@@ -18,13 +18,15 @@ if [[ $1 == rc ]]; then
   rm "$TMPFILE"
 
 elif [[ $1 == rf ]]; then
-  IMGFILE=$(xdg-user-dir PICTURES)/Screenshots/$(date +"%s_grim.png")
+  FILENAME="grim_$(date +"%s.png")"
+  IMGFILE=$XDG_SCREENSHOTS_DIR/$FILENAME
   
   grim -g "$(slurp)" $IMGFILE
   dunstify --icon=$IMGFILE "Screenshot saved"
 
 elif [[ $1 == sf ]]; then
-  IMGFILE=$(xdg-user-dir PICTURES)/Screenshots/$(date +"%s_grim.png")
+  FILENAME="grim_$(date +"%s.png")"
+  IMGFILE=$XDG_SCREENSHOTS_DIR/$FILENAME
   
   grim $IMGFILE
   dunstify --icon=$IMGFILE "Screenshot saved"

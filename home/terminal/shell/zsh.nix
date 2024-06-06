@@ -13,6 +13,7 @@
     };
     shellAliases = {
       vim = "nvim";
+      v = "fd --hidden --type f --exclude .git | fzf --height 40% --reverse | xargs nvim";
     };
     initExtra = ''
       autoload -U promptinit; promptinit

@@ -15,6 +15,8 @@
         ../system
         ../system/programs/sddm.nix
         ../system/programs/hyprland.nix
+        ../system/programs/steam.nix
+        ../system/programs/gamemode.nix
         {
           home-manager = {
             users.nakul.imports = homeImports."nakul@muse";
