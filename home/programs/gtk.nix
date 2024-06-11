@@ -14,6 +14,10 @@
         variant = "mocha";
       };
     };
+    iconTheme = {
+      package = pkgs.catppuccin-papirus-folders;
+      name = "Papirus";
+    };
   };
 
   qt = {

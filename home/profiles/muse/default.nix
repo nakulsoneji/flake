@@ -6,6 +6,7 @@
     ../../desktop/waybar
 
     ../../programs
+    ../../programs/files/thunar.nix
 
     ../../terminal/programs
     ../../terminal/shell/zsh.nix
