@@ -11,6 +11,7 @@
     ../../terminal/programs
     ../../terminal/shell/zsh.nix
     ../../terminal/emulators/kitty
+    ../../terminal/emulators/alacritty.nix
 
     ../../editors/nixvim.nix
   ];
