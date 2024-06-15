@@ -18,6 +18,11 @@
       package = pkgs.catppuccin-papirus-folders;
       name = "Papirus";
     };
+    font = {
+      package = pkgs.noto-fonts;
+      name = "Noto Sans";
+      size = 11;
+    };
   };
 
   qt = {

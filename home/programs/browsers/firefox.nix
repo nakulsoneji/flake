@@ -11,6 +11,12 @@
           };
           force = true;
         };
+        settings = {
+          # turn off password saving because we are using bitwarden
+          "extensions.formautofill.addresses.enabled" = false;
+          "extensions.formautofill.creditCards.enabled" = false;
+          "signon.rememberSignons" = false;
+        };
       };
     };
   };

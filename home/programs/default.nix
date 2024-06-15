@@ -5,5 +5,6 @@
     ./media/imv.nix
     ./media/mpv.nix
     ./gtk.nix
+    ./security/bitwarden.nix
   ];
 }
