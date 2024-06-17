@@ -14,5 +14,6 @@
     ../../terminal/emulators/alacritty.nix
 
     ../../editors/nixvim.nix
+    ../../editors/rstudio.nix
   ];
 }
