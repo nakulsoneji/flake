@@ -8,6 +8,8 @@
     ../../programs
     ../../programs/files/thunar.nix
 
+    ../../services/polkit-gnome.nix
+
     ../../terminal/programs
     ../../terminal/shell/zsh.nix
     ../../terminal/emulators/kitty
@@ -15,5 +17,6 @@
 
     ../../editors/nixvim.nix
     ../../editors/rstudio.nix
+    ../../editors/vscode.nix
   ];
 }

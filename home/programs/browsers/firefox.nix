@@ -16,6 +16,8 @@
           "extensions.formautofill.addresses.enabled" = false;
           "extensions.formautofill.creditCards.enabled" = false;
           "signon.rememberSignons" = false;
+          # restore pages on startup automatically
+          "browser.startup.page" = 3;
         };
       };
     };
