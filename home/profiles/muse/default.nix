@@ -10,6 +10,8 @@
 
     ../../services/polkit-gnome.nix
 
+    ../../email/default.nix
+
     ../../terminal/programs
     ../../terminal/shell/zsh.nix
     ../../terminal/emulators/kitty

@@ -1,0 +1,3 @@
+{
+  programs.neomutt.enable = true;
+}
