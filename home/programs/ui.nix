@@ -7,20 +7,22 @@
   };
 
   # makes the theme light for some reason (maybe bc default dark theme isn't installed?), dont do this.
-  # dconf.settings = {
-  #   "org/gnome/desktop/interface" = {
-  #     color-scheme = "prefer-dark";
-  #     gtk-theme = "Catppuccin-Mocha-Standard-Blue-Dark";
-  #   };
-  # };
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
 
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha-Standard-Blue-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        variant = "mocha";
-      };
+      # they done broke catppuccin :sob; (the theme straight up doesnt work anymore)
+      # name = "Catppuccin-Mocha-Standard-Blue-Dark";
+      # package = pkgs.catppuccin-gtk.override {
+      #   variant = "mocha";
+      # };
+      package = pkgs.gnome.gnome-themes-extra;
+      name = "Adwaita-dark";
     };
     iconTheme = {
       package = pkgs.catppuccin-papirus-folders;
@@ -35,7 +37,7 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "gtk";
-    style.name = "gtk2";
+    platformTheme.name = "adwaita";
+    style.name = "adwaita-dark";
   };
 }

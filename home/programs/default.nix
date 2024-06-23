@@ -8,7 +8,7 @@
     ./media/mpv.nix
     ./media/spotify.nix
 
-    ./gtk.nix
+    ./ui.nix
 
     ./security/bitwarden.nix
   ];
