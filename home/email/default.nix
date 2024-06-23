@@ -1,6 +1,8 @@
 {
   imports = [
     ./thunderbird.nix
+    ./aerc.nix
+    ./neomutt.nix
   ];
 
   accounts.email.accounts = {
@@ -10,14 +12,14 @@
       userName = "nakulsoneji@gmail.com";
       realName = "Nakul Soneji";
       flavor = "gmail.com";
-      # passwordCommand = "echo 'segs buzo gedl tfvt'";
-      # aerc = {
-      #   enable = true;
-      # };
-      # neomutt = {
-      #   enable = true;
-      #   mailboxType = "imap";
-      # };
+      passwordCommand = "bw get item 'Google Main' | jq -r '.fields[0].value'";
+      aerc = {
+        enable = true;
+      };
+      neomutt = {
+        enable = true;
+        mailboxType = "imap";
+      };
     };
   };
 }

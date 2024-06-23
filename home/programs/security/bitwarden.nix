@@ -5,6 +5,7 @@
   ];
 
   # rbw is currently bugged, using official cli for now (https://github.com/doy/rbw/issues/182)
+  # this should be fixed when https://github.com/NixOS/nixpkgs/pull/321427 is merged
   # programs.rbw = {
   #   enable = true;
   #   settings = {

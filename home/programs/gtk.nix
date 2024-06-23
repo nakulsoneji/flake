@@ -3,8 +3,16 @@
     gtk.enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
-    size = 22;
+    size = 21;
   };
+
+  # makes the theme light for some reason (maybe bc default dark theme isn't installed?), dont do this.
+  # dconf.settings = {
+  #   "org/gnome/desktop/interface" = {
+  #     color-scheme = "prefer-dark";
+  #     gtk-theme = "Catppuccin-Mocha-Standard-Blue-Dark";
+  #   };
+  # };
 
   gtk = {
     enable = true;
