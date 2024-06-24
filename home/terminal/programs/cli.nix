@@ -3,6 +3,10 @@
     ./git.nix
   ];
 
+  home.packages = with pkgs; [
+    nitch
+  ];
+
   programs.eza = {
     enable = true;
     enableZshIntegration = true;
@@ -77,6 +81,8 @@
     enable = true;
     settings.color_theme = "catppuccin_mocha";
   };
+
+  programs.jq.enable = true;
 
   xdg.configFile = {
     "btop/themes/catppuccin_mocha.theme".source = pkgs.fetchurl {

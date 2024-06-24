@@ -16,13 +16,11 @@
   gtk = {
     enable = true;
     theme = {
-      # they done broke catppuccin :sob; (the theme straight up doesnt work anymore)
-      # name = "Catppuccin-Mocha-Standard-Blue-Dark";
-      # package = pkgs.catppuccin-gtk.override {
-      #   variant = "mocha";
-      # };
-      package = pkgs.gnome.gnome-themes-extra;
-      name = "Adwaita-dark";
+      # catppuccin gtk replacement
+      name = "Colloid-Dark-Catppuccin";
+      package = pkgs.colloid-gtk-theme.override {
+        tweaks = ["catppuccin" "black"];
+      };
     };
     iconTheme = {
       package = pkgs.catppuccin-papirus-folders;
@@ -37,7 +35,7 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "adwaita";
-    style.name = "adwaita-dark";
+    platformTheme.name = "gtk";
+    style.name = "gtk2";
   };
 }
