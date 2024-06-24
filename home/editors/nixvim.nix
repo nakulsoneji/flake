@@ -23,6 +23,16 @@
       netrw_winsize = 15;
     };
     plugins = {
+      lsp = {
+        enable = true;
+        servers = {
+          clangd = {
+            enable = true;
+            cmd = ["clangd"];
+          };
+          nixd.enable = true;
+        };
+      };
       cmp = {
         enable = true;
         settings = {
@@ -104,16 +114,6 @@
       cmp_luasnip.enable = true;
       cmp-path.enable = true;
       cmp-nvim-lsp.enable = true;
-      lsp = {
-        enable = true;
-        servers = {
-          clangd = {
-            enable = true;
-            cmd = ["clangd"];
-          };
-          nil_ls.enable = true;
-        };
-      };
       treesitter = {
         enable = true;
         indent = true;
