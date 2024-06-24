@@ -1,5 +1,11 @@
-1. make sure that xdg.nix is imported for hyprland screenshot script, needs $XDG_SCREENSHOT_DIR set in xdg.nix
-2. for rbw (bitwarden alternate cli), use `rbw register` with api keys (https://bitwarden.com/help/personal-api-key/)
-3. for bitwarden-cli, run `bw login` to setup
-4. for bitwarden-desktop, change the theme to "dark" (unable to change through .config, as data.json is massive)
-5. for thunderbird, set theme and login to accounts manually
+1. copy generated hardware-configuration.nix to the hosts (cp -r /etc/nixos/hardware-configuration.nix /path/to/flake/hosts/muse/hardware-configuration.nix)
+2. make sure that xdg.nix is imported for hyprland screenshot script, needs $XDG_SCREENSHOT_DIR set in xdg.nix
+3?. for rbw (bitwarden alternate cli), use `rbw register` with api keys (https://bitwarden.com/help/personal-api-key/)
+note: broken right now, wait for pr to merge for nixos package
+4. for bitwarden-cli, run `bw login` to setup
+5. for bitwarden-desktop, change the theme to "dark" (unable to change through .config, as data.json is massive)
+6. for thunderbird, set theme and login to accounts manually
+7. for rstudio, set the theme and setting
+8. add ssh keys and login w/gh cli for more git stuff
+9?. check to see if catppuccin/gtk is fixed for nixos (current version just leads to default light theme, using adwaita-dark for now)
+10. for discord: because openasar is being used, every update we need to disable openasar, launch discord to allow for file generation, then reenable openasar

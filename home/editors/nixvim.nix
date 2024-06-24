@@ -14,6 +14,13 @@
       pumheight = 10;
       laststatus = 3;
       clipboard = "unnamedplus";
+      # fix weird indent on colons
+      indentkeys = "0{,0},0#,!^F,o,O,e";
+    };
+    globals = {
+      netrw_banner = 0;
+      netrw_liststyle = 3;
+      netrw_winsize = 15;
     };
     plugins = {
       cmp = {
@@ -85,8 +92,16 @@
           };
         };
       };
+      luasnip = {
+        enable = true;
+        fromVscode = [
+          {}
+        ];
+      };
+      friendly-snippets.enable = true;
       cmp-cmdline.enable = true;
       cmp-buffer.enable = true;
+      cmp_luasnip.enable = true;
       cmp-path.enable = true;
       cmp-nvim-lsp.enable = true;
       lsp = {
@@ -108,13 +123,147 @@
         modules = {
           basics = {};
           statusline = {};
-          surround = {};
+          surround = {
+            mappings = {
+              add = "gsa";
+              delete = "gsd";
+              find = "gsf";
+              find_left = "gsF";
+              highlight = "gsh";
+              replace = "gsr";
+              update_n_lines = "gsn";
+            };
+          };
+          notify = {};
+          git = {};
           tabline = {};
           ai = {};
+          files = {};
+          pick = {};
         };
       };
       nvim-autopairs.enable = true;
+      flash = {
+        enable = true;
+        highlight = {
+          backdrop = false;
+          groups.backdrop = "";
+        };
+      };
     };
+    keymaps = [
+      # diagnostics
+      # note: <c-w>d and <c-w><c-d> will execute open_float
+      {
+        key = "<space>d";
+        action = "vim.diagnostic.open_float";
+        mode = ["n"];
+      }
+      # [d and ]d are mapped to this by default in nvim 0.10
+      {
+        key = "[d";
+        action = "vim.diagnostic.goto_prev";
+        mode = ["n"];
+      }
+      {
+        key = "]d";
+        action = "vim.diagnostic.goto_next";
+        mode = ["n"];
+      }
+      {
+        key = "<space>q";
+        action = "vim.diagnostic.setloclist";
+        mode = ["n"];
+      }
+      # buffers
+      {
+        key = "<S-h>";
+        action = "<cmd>bprevious<cr>";
+        mode = ["n"];
+      }
+      {
+        key = "<S-l>";
+        action = "<cmd>bnext<cr>";
+        mode = ["n"];
+      }
+      {
+        key = "[b";
+        action = "<cmd>bprevious<cr>";
+        mode = ["n"];
+      }
+      {
+        key = "]b";
+        action = "<cmd>bnext<cr>";
+        mode = ["n"];
+      }
+      {
+        key = "<leader>bd";
+        action = "<cmd>bd<cr>";
+        mode = ["n"];
+      }
+      # netrw
+      {
+        key = "<space>e";
+        action = "<cmd>Lex<cr>";
+        mode = ["n"];
+      }
+      # flash.nvim
+      {
+        key = "s";
+        mode = ["n" "x" "o"];
+        action = {
+          __raw = "function() require('flash').jump() end";
+        };
+      }
+      {
+        key = "S";
+        mode = ["n" "x" "o"];
+        action = {
+          __raw = "function() require('flash').treesitter() end";
+        };
+      }
+      {
+        key = "r";
+        mode = ["o"];
+        action = {
+          __raw = "function() require('flash').remote() end";
+        };
+      }
+      {
+        key = "R";
+        mode = ["o" "x"];
+        action = {
+          __raw = "function() require('flash').treesitter_search() end";
+        };
+      }
+      {
+        key = "<c-s>";
+        action = {
+          __raw = "function() require('flash').toggle() end";
+        };
+        mode = ["c"];
+      }
+      # mini.pick
+      {
+        key = "<leader><leader>";
+        action = "<cmd>Pick files<cr>";
+      }
+      {
+        key = "<leader>ff";
+        action = "<cmd>Pick files<cr>";
+      }
+      {
+        key = "<leader>fg";
+        action = "<cmd>Pick grep_live<cr>";
+      }
+      # mini.files
+      {
+        key = "<leader>fe";
+        action = {
+          __raw = "function() require('mini.files').open(vim.uv.cwd(), true) end";
+        };
+      }
+    ];
     # currently, cmdline cmp nixvim is bugged, so we do this
     extraConfigLua = ''
       local cmp = require("cmp")
@@ -137,6 +286,23 @@
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
           { name = "buffer" },
+        },
+      })
+
+      -- for shaders and justfile treesitter
+      vim.filetype.add({
+        extension = {
+          vert = "glsl",
+          tesc = "glsl",
+          tese = "glsl",
+          frag = "glsl",
+          geom = "glsl",
+          comp = "glsl",
+          just = "just",
+        },
+        filename = {
+          ["justfile"] = "just",
+          [".justfile"] = "just",
         },
       })
     '';

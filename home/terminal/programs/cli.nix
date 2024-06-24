@@ -1,9 +1,7 @@
 {pkgs, ...}: {
-  programs.git = {
-    enable = true;
-    userName = "nakulsoneji";
-    userEmail = "nakulsoneji@gmail.com";
-  };
+  imports = [
+    ./git.nix
+  ];
 
   programs.eza = {
     enable = true;
