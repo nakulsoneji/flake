@@ -36,6 +36,11 @@
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,10 +48,7 @@
       inputs.flake-utils.follows = "flake-utils";
     };
 
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-      flake = false;
-    };
+    flake-utils.url = "github:numtide/flake-utils";
 
     home-manager = {
       url = "github:nix-community/home-manager";

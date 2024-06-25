@@ -1,5 +1,5 @@
 1. copy generated hardware-configuration.nix to the hosts (cp -r /etc/nixos/hardware-configuration.nix /path/to/flake/hosts/muse/hardware-configuration.nix)
-2. make sure that xdg.nix is imported for hyprland screenshot script, needs $XDG_SCREENSHOT_DIR set in xdg.nix
+2. make sure that xdg.nix is imported for hyprland scripts, needs $XDG_SCREENSHOT_DIR and $XDG_RECORDINGS_DIR
 3?. for rbw (bitwarden alternate cli), use `rbw register` with api keys (https://bitwarden.com/help/personal-api-key/)
 note: broken right now, wait for pr to merge for nixos package
 4. for bitwarden-cli, run `bw login` to setup

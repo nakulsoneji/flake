@@ -18,7 +18,10 @@
           "signon.rememberSignons" = false;
           # restore pages on startup automatically
           "browser.startup.page" = 3;
+          # enable userChrome.css
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         };
+        userChrome = builtins.readFile ./userChrome.css;
       };
     };
   };

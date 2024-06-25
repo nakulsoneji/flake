@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Flags:
+#
+# f: record fullscreen
+# r: record region
+# s: stop recording
+
+recfile=$XDG_RECORDINGS_DIR/"recording_$(date +"%s.mp4")"
+
+if [[ $1 == f ]]; then
+  wf-recorder -f $recfile 
+elif [[ $1 == r ]]; then
+  wf-recorder -g "$(slurp)" -f $recfile
+elif [[ $1 == s ]]; then
+  if pkill -x wf-recorder; then
+    dunstify --icon "/dev/null" "Recording saved"
+  else
+    exit 1
+  fi
+fi

@@ -14,6 +14,7 @@
     shellAliases = {
       vim = "nvim";
       v = "fd --hidden --type f --exclude .git | fzf --height 40% --reverse | xargs nvim";
+      cat = "bat";
     };
     initExtra = ''
       autoload -U promptinit; promptinit
@@ -22,6 +23,8 @@
       bindkey '^f' autosuggest-accept
       bindkey '^p' history-substring-search-up
       bindkey '^n' history-substring-search-down
+
+      nitch
     '';
   };
 

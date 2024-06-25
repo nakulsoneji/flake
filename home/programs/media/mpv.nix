@@ -5,6 +5,7 @@
     scripts = with pkgs.mpvScripts; [
       mpris
       modernx-zydezu
+      thumbfast
     ];
   };
 

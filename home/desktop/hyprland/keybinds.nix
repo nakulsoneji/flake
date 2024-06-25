@@ -4,10 +4,12 @@
 
   bind = [
     "$mod SHIFT, P, exec, $scripts/picker"
-    "$mod SHIFT, S, exec, $scripts/screenshot rc"
-    "$mod, Print, exec, $scripts/screenshot rf"
-    ", Print, exec, $scripts/screenshot sf"
+    "$mod SHIFT, S, exec, $scripts/screenshot r"
+    "$mod, Print, exec, $scripts/screenshot f"
+    "$mod SHIFT, R, exec, $scripts/record s || $scripts/record r"
+    "$mod SHIFT, Print, exec, $scripts/record s || $scripts/record f"
     "$mod, N, exec, dunstctl context"
+    "$mod SHIFT, N, exec, dunstctl close-all"
     ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     "$mod, Q, exec, kitty"
     "$mod, C, killactive,"

@@ -3,7 +3,7 @@
     gtk.enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
-    size = 21;
+    size = 22;
   };
 
   # makes the theme light for some reason (maybe bc default dark theme isn't installed?), dont do this.

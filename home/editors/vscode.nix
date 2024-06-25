@@ -17,6 +17,7 @@ in {
       ms-python.vscode-pylance
       vscodevim.vim
     ];
+
     userSettings = {
       "extensions.autoCheckUpdates" = false;
       "update.mode" = "none";

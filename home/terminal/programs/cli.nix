@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./git.nix
+    ./scripts.nix
   ];
 
   home.packages = with pkgs; [
@@ -83,6 +84,8 @@
   };
 
   programs.jq.enable = true;
+
+  programs.nix-index-database.comma.enable = true;
 
   xdg.configFile = {
     "btop/themes/catppuccin_mocha.theme".source = pkgs.fetchurl {

@@ -1,0 +1,9 @@
+/* REMOVE SIDEBAR TITLE */
+
+#sidebar-header {
+  display: none;
+}
+#TabsToolbar {
+  display: none;
+}
+

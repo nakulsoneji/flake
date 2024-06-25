@@ -1,6 +1,7 @@
-{
+{inputs, ...}: {
   imports = [
     ./terminal
+    inputs.nix-index-database.hmModules.nix-index
   ];
 
   home = {

@@ -98,7 +98,8 @@
             };
           };
           experimental = {
-            ghost_text = true;
+            # not a huge fan of this tbh
+            ghost_text = false;
           };
         };
       };
@@ -156,18 +157,24 @@
       # note: <c-w>d and <c-w><c-d> will execute open_float
       {
         key = "<space>d";
-        action = "vim.diagnostic.open_float";
+        action = {
+          __raw = "vim.diagnostic.open_float";
+        };
         mode = ["n"];
       }
       # [d and ]d are mapped to this by default in nvim 0.10
       {
         key = "[d";
-        action = "vim.diagnostic.goto_prev";
+        action = {
+          __raw = "vim.diagnostic.goto_prev";
+        };
         mode = ["n"];
       }
       {
         key = "]d";
-        action = "vim.diagnostic.goto_next";
+        action = {
+          __raw = "vim.diagnostic.goto_next";
+        };
         mode = ["n"];
       }
       {
@@ -265,6 +272,22 @@
       }
     ];
     # currently, cmdline cmp nixvim is bugged, so we do this
+    extraConfigLuaPre = ''
+      require("catppuccin").setup({
+        flavour = "mocha",
+        integrations = {
+          native_lsp = {
+            enabled = true,
+            underlines = {
+              errors = { "undercurl" },
+              hints = { "undercurl" },
+              warnings = { "undercurl" },
+              information = { "undercurl" },
+            },
+          }
+        }
+      })
+    '';
     extraConfigLua = ''
       local cmp = require("cmp")
 

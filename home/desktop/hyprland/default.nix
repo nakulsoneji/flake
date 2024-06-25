@@ -7,6 +7,8 @@
   home.packages = with pkgs; [
     grim
     slurp
+    wf-recorder
+    swappy
     wl-clipboard
     hyprpicker
     hyprpaper
@@ -38,7 +40,7 @@
           "dunst"
           "hyprpaper"
         ];
-
+        debug.disable_logs = false;
         windowrulev2 = [
           "float,class:^(org.kde.polkit-kde-authentication-agent-1)$"
           "float,title:^(glfw_window.*)$"
@@ -54,6 +56,9 @@
             scroll_factor = 0.2;
           };
           sensitivity = 0;
+        };
+        gestures = {
+          workspace_swipe = true;
         };
         general = {
           gaps_in = 3;

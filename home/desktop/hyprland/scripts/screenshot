@@ -3,32 +3,44 @@
 # Flags:
 #
 # r: region
-# s: screen
-#
-# f: file
-# c: clipboard
+# f: fullscreen
 
-if [[ $1 == rc ]]; then
-  TMPFILE=$(mktemp /tmp/grim-img-XXXXXX)
+# $1 - created tmpfile
+screenshot_actions () {
+  tmpfile=$1
+  wl-copy < $tmpfile
+  action=$(dunstify --icon=$tmpfile "Screenshot copied" -A "default,Edit" -A "save,Save")
+  
+  if [[ "$action" != "1" ]] || [[ "$action" != "2" ]]; then
+    imgfile=$XDG_SCREENSHOTS_DIR/"screenshot_$(date +"%s.png")"
+    case $action in
+      default)
+        swappy -f $tmpfile -o $imgfile
+        ;;
+      save)
+        cp $tmpfile $imgfile
+    esac
+  fi
 
-  grim -g "$(slurp)" $TMPFILE
-  wl-copy < $TMPFILE
-  dunstify --icon=$TMPFILE "Screenshot copied"
+  rm "$tmpfile"
+}
 
-  rm "$TMPFILE"
+if [[ "$1" == "r" ]]; then
+  tmpfile=$(mktemp /tmp/grim-img-XXXXXX)
+
+  grim -g "$(slurp)" $tmpfile
+  screenshot_actions $tmpfile
 
 elif [[ $1 == rf ]]; then
-  FILENAME="grim_$(date +"%s.png")"
-  IMGFILE=$XDG_SCREENSHOTS_DIR/$FILENAME
+  filename="screenshot_$(date +"%s.png")"
+  imgfile=$XDG_SCREENSHOTS_DIR/$filename
   
-  grim -g "$(slurp)" $IMGFILE
-  dunstify --icon=$IMGFILE "Screenshot saved"
+  grim -g "$(slurp)" $imgfile
+  dunstify --icon=$imgfile "Screenshot saved"
 
-elif [[ $1 == sf ]]; then
-  FILENAME="grim_$(date +"%s.png")"
-  IMGFILE=$XDG_SCREENSHOTS_DIR/$FILENAME
-  
-  grim $IMGFILE
-  dunstify --icon=$IMGFILE "Screenshot saved"
+elif [[ "$1" == "f" ]]; then
+  tmpfile=$(mktemp /tmp/grim-img-XXXXXX)
 
+  grim $tmpfile
+  screenshot_actions $tmpfile
 fi

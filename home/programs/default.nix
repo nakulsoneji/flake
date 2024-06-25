@@ -2,11 +2,9 @@
   imports = [
     ./social/discord.nix
 
-    ./browsers/firefox.nix
+    ./browsers/firefox
 
-    ./media/imv.nix
-    ./media/mpv.nix
-    ./media/spotify.nix
+    ./media
 
     ./ui.nix
 
