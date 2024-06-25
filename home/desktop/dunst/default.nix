@@ -10,7 +10,7 @@
         width = 300;
         height = 300;
         origin = "top-right";
-        offset = "5x25";
+        offset = "3x25";
         scale = 0;
         notification_limit = 20;
         ### Progress bar ###;
@@ -27,7 +27,7 @@
         padding = 8;
         horizontal_padding = 8;
         text_icon_padding = 0;
-        frame_width = 3;
+        frame_width = 2;
         frame_color = "#89B4FA";
         gap_size = 10;
         separator_color = "frame";
@@ -68,7 +68,7 @@
         force_xinerama = false;
         ### mouse;
         mouse_left_click = "close_current";
-        mouse_middle_click = "context, close_current";
+        mouse_middle_click = "do_action, close_current";
         mouse_right_click = "close_all";
       };
       experimental = {

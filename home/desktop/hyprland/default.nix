@@ -2,6 +2,7 @@
   imports = [
     ./hyprland-env.nix
     ./hyprpaper.nix
+    ./swappy.nix
   ];
 
   home.packages = with pkgs; [
@@ -14,14 +15,6 @@
     hyprpaper
     brightnessctl
   ];
-
-  home.file."Pictures/wallpapers" = {
-    source = ./wallpapers;
-  };
-
-  xdg.configFile."hypr/scripts" = {
-    source = ./scripts;
-  };
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -62,10 +55,10 @@
         };
         general = {
           gaps_in = 3;
-          gaps_out = 6;
+          gaps_out = "6,3,6,3";
           border_size = 2;
           "col.active_border" = "$blue 45deg";
-          "col.inactive_border" = "$base";
+          "col.inactive_border" = "$surface2";
           no_border_on_floating = false;
           layout = "dwindle";
         };
@@ -118,5 +111,13 @@
           new_is_master = true;
         };
       };
+  };
+
+  home.file."Pictures/wallpapers" = {
+    source = ./wallpapers;
+  };
+
+  xdg.configFile."hypr/scripts" = {
+    source = ./scripts;
   };
 }

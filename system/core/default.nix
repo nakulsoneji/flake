@@ -24,4 +24,6 @@
   time.timeZone = lib.mkDefault "America/Los_Angeles";
 
   system.stateVersion = lib.mkDefault "23.11";
+
+  zramSwap.enable = true;
 }

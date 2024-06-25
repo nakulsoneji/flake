@@ -7,4 +7,6 @@
   ];
 
   programs.dconf.enable = true;
+  # for thunar settings to save
+  programs.xfconf.enable = true;
 }

@@ -12,12 +12,12 @@ screenshot_actions () {
   action=$(dunstify --icon=$tmpfile "Screenshot copied" -A "default,Edit" -A "save,Save")
   
   if [[ "$action" != "1" ]] || [[ "$action" != "2" ]]; then
-    imgfile=$XDG_SCREENSHOTS_DIR/"screenshot_$(date +"%s.png")"
     case $action in
       default)
-        swappy -f $tmpfile -o $imgfile
+        swappy -f $tmpfile
         ;;
       save)
+        imgfile=$XDG_SCREENSHOTS_DIR/"screenshot-$(date +"%s.png")"
         cp $tmpfile $imgfile
     esac
   fi
