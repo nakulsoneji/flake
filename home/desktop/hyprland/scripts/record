@@ -2,20 +2,42 @@
 
 # Flags:
 #
-# f: record fullscreen
-# r: record region
-# s: stop recording
+# f: toggle record fullscreen
+# r: toggle record region
 
 recfile=$XDG_RECORDINGS_DIR/"recording_$(date +"%s.mp4")"
 
-if [[ $1 == f ]]; then
-  wf-recorder -f $recfile 
-elif [[ $1 == r ]]; then
-  wf-recorder -g "$(slurp)" -f $recfile
-elif [[ $1 == s ]]; then
-  if pkill -x wf-recorder; then
-    dunstify --icon "/dev/null" "Recording saved"
+record_dim () {
+  dim=$(slurp)
+  if [[ $? == 0 ]]; then
+    wf-recorder -g "$dim" -f $recfile
   else
     exit 1
   fi
+}
+
+record_fullscreen() {
+  wf-recorder -f $recfile 
+}
+
+toggle_record_dim () {
+  if pkill -x wf-recorder; then
+    dunstify --icon "/dev/null" "Recording saved"
+  else
+    record_dim
+  fi
+}
+
+toggle_record_fullscreen () {
+  if pkill -x wf-recorder; then
+    dunstify --icon "/dev/null" "Recording saved"
+  else
+    record_fullscreen
+  fi
+}
+
+if [[ $1 == r ]]; then
+  toggle_record_dim
+elif [[ $1 == f ]]; then 
+  toggle_record_fullscreen
 fi

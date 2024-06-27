@@ -2,44 +2,27 @@
 
 * {
   border: none;
-  border-radius: 0px;
+  min-height: 0px;
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: JetBrainsMono Nerd Font;
+  font-family: FontAwesome, JetBrainsMono Nerd Font;
   font-style: normal;
   font-size: 14px;
 }
 
 window#waybar {
   background-color: @base;
-    border-bottom: 2px solid @blue; 
-  transition-property: background-color;
-  transition-duration: .5s;
-
+  color: @blue;
+  border-bottom: 2px solid @blue;
 }
 
-/*
-window#waybar.empty {
-background-color: transparent;
-}
-window#waybar.solo {
-background-color: #FFFFFF;
-}
-*/
-
-#workspaces {
-  background: @base;
-  margin: 10px 5px 10px 5px;
-  padding: 0px 5px 0px 5px;
-  border-radius: 0;
-  border: none;
-  font-weight: normal;
-  font-style: normal;
+tooltip {
+  border: 2px solid @blue;
+  background-color: @base;
 }
 
-/* add border-color to hover and border in order to stop annoying hover effect */
 #workspaces button {
   padding: 0px 3px;
-  border-radius: 16px;
+  background-color: transparent;
   color: @blue;
 }
 
@@ -50,8 +33,53 @@ background-color: #FFFFFF;
   transition: none;
 }
 
+/* fix active workspce button not being aligned */
+#workspaces button.active {
+  margin: 0px 3px 0px -3px;
+}
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+/*#window {*/
+/*  background-color: @base;*/
+/*  border: 2px solid @blue;*/
+/*  margin-left: 10px;*/
+/*  margin-right: 10px;*/
+/*  padding-right: 5px;*/
+/*  padding-left: 5px;*/
+/*}*/
+/**/
+/*window#waybar.empty #window {*/
+/*  background-color: transparent;*/
+/*  border: none;*/
+/*}*/
+
+#mpris {
+  margin-left: 10px;
+}
+
+/*#tray {*/
+/*	background-color: @base;*/
+/*  border: 2px solid @blue;*/
+/*  margin-right: 10px;*/
+/*}*/
+
+/*#info-group {*/
+/*	background-color: @base;*/
+/*  border: 2px solid @blue;*/
+/*  margin-right: 10px;*/
+/*  padding: 0px 7px 0px 7px;*/
+/*}*/
+
+.modules-right {
+  margin-right: 5px;
+} 
+
+.modules-left {
+  margin-left: 5px;
+} 
+
+.power-control-child > * {
+  margin-right: 5px;
+}
 
 #workspaces button.urgent {
   color: @red;
@@ -59,7 +87,6 @@ background-color: #FFFFFF;
 
 #mode {
   background-color: #64727D;
-  border-bottom: 3px solid #ffffff;
 }
 
 #clock,
@@ -77,17 +104,17 @@ background-color: #FFFFFF;
 #mode,
 #idle_inhibitor,
 #scratchpad,
-#clock,
 #battery,
 #cpu,
-#pulseaudio
+#pulseaudio,
+#upower,
+#bluetooth,
+#workspaces
+#mpris,
+#power-control,
 #mpd {
-  padding: 0px 10px;
-  color: @blue;
-  background-color: @base;
-  border-radius: 16px;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  padding: 0px 5px 0px 5px;
+  background-color: transparent;
 }
 
 #battery {
@@ -119,20 +146,6 @@ label:focus {
 
 #pulseaudio.muted {
   color: @red;
-}
-
-#custom-media {
-  background-color: @green;
-  color: @base;
-  min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-  background-color: @green;
-}
-
-#custom-media.custom-vlc {
-  background-color: #ffa000;
 }
 
 #temperature.critical {

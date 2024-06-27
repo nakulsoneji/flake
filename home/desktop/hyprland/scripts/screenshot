@@ -28,19 +28,23 @@ screenshot_actions () {
 if [[ "$1" == "r" ]]; then
   tmpfile=$(mktemp /tmp/grim-img-XXXXXX)
 
-  grim -g "$(slurp)" $tmpfile
-  screenshot_actions $tmpfile
-
-elif [[ $1 == rf ]]; then
-  filename="screenshot_$(date +"%s.png")"
-  imgfile=$XDG_SCREENSHOTS_DIR/$filename
-  
-  grim -g "$(slurp)" $imgfile
-  dunstify --icon=$imgfile "Screenshot saved"
+  if grim -g "$(slurp)" $tmpfile; then
+    screenshot_actions $tmpfile
+  else
+    rm "$tmpfile"
+    exit 1
+  fi
 
 elif [[ "$1" == "f" ]]; then
   tmpfile=$(mktemp /tmp/grim-img-XXXXXX)
 
-  grim $tmpfile
-  screenshot_actions $tmpfile
+  if grim $tmpfile; then
+    screenshot_actions $tmpfile
+  else
+    rm "$tmpfile"
+    exit 1
+  fi
+
+  rm "$tmpfile"
+
 fi

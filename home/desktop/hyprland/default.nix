@@ -32,12 +32,15 @@
           "waybar"
           "dunst"
           "hyprpaper"
+          "blueman-applet"
         ];
         debug.disable_logs = false;
         windowrulev2 = [
-          "float,class:^(org.kde.polkit-kde-authentication-agent-1)$"
-          "float,title:^(glfw_window.*)$"
-          "float,title:^(QEMU)$"
+          "float, class:^(org.kde.polkit-kde-authentication-agent-1)$"
+          "float, title:^(glfw_window.*)$"
+          "float, title:^(QEMU)$"
+          "float, class:^(pavucontrol|.blueman-manager-wrapped)$"
+          "size 40% 40%, class:^(pavucontrol|.blueman-manager-wrapped)$"
         ];
 
         input = {

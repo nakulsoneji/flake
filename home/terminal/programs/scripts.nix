@@ -11,7 +11,7 @@
         while getopts "L:" flag; do
           case "$flag" in
             L) depth=$OPTARG ;;
-            *) echo "Invalid argument provided: \"$flag\"" && exit 1 ;;
+            *) echo "Invalid argument provided" && exit 1 ;;
           esac
         done
 

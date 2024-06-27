@@ -1,4 +1,13 @@
-{lib, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
+  # can put in startup if i want to
+  environment.systemPackages = with pkgs; [
+    networkmanagerapplet
+  ];
+
   networking.networkmanager.enable = true;
 
   services = {

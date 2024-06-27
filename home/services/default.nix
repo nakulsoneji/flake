@@ -1,0 +1,5 @@
+{
+  imports = [
+    ./playerctld.nix
+  ];
+}
