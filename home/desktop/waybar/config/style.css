@@ -69,16 +69,16 @@ tooltip {
 /*  padding: 0px 7px 0px 7px;*/
 /*}*/
 
-.modules-right {
-  margin-right: 5px;
-} 
-
 .modules-left {
   margin-left: 5px;
 } 
 
-.power-control-child > * {
+.modules-right {
   margin-right: 5px;
+} 
+
+.power-control-child > * {
+  margin-right: 9px;
 }
 
 #workspaces button.urgent {
