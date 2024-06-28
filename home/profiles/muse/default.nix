@@ -4,6 +4,7 @@
     ../../desktop/rofi
     ../../desktop/dunst
     ../../desktop/waybar
+    ../../desktop/ags
 
     ../../programs
     ../../programs/files/thunar.nix

@@ -31,6 +31,7 @@
             cmd = ["clangd"];
           };
           nixd.enable = true;
+          tsserver.enable = true;
         };
       };
       cmp = {

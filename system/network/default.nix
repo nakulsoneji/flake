@@ -6,6 +6,7 @@
   # can put in startup if i want to
   environment.systemPackages = with pkgs; [
     networkmanagerapplet
+    hostname-debian
   ];
 
   networking.networkmanager.enable = true;

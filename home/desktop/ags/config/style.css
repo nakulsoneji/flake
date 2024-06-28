@@ -1,0 +1,93 @@
+@import url("./mocha.css");
+
+/*menu * {*/
+/*  min-width: 0;*/
+/*  min-height: 0;*/
+/*}*/
+
+window .bar {
+  color: @blue;
+  background-color: @base;
+  border-bottom: 2px solid @blue;
+  min-height: 35px;
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 14px;
+}
+
+.tray-item {
+  color: @blue;
+  padding: 0px;
+  margin-left: 10px;
+}
+
+.audio-muted {
+  color: @red;
+}
+
+button {
+  color: @blue;
+  background-color: transparent;
+}
+
+button:hover {
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  transition: none;
+}
+
+/* the slider dot is buggy and hides behind widgets */
+scale slider {
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  transition: none;
+}
+
+tooltip {
+  color: @blue;
+  background-color: @base;
+  border: 2px solid @blue;
+  border-radius: 0px;
+  min-width: 0;
+  min-height: 0;
+
+}
+
+.volume-slider highlight{
+  min-height: 7px;
+  border-radius: 20px;
+}
+
+.volume-slider trough {
+  border-radius: 20px;
+}
+
+.volume-slider {
+  margin: 0px 0px 0px 5px
+}
+
+.workspace-button {
+  min-width: 0px;
+  padding: 0px 7px 0px 7px;
+}
+
+.workspace-urgent-button {
+  color: @yellow;
+}
+
+.widgets-left {
+  margin-left: 5px;
+}
+
+.widgets-right {
+  margin-right: 5px;
+}
+
+.widgets-left > *,
+.widgets-center > *,
+.widgets-right > * {
+  padding: 0;
+  margin: 0px 3px 0px 3px;
+}
+
