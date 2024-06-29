@@ -5,39 +5,13 @@
 /*  min-height: 0;*/
 /*}*/
 
-window .bar {
-  color: @blue;
-  background-color: @base;
-  border-bottom: 2px solid @blue;
-  min-height: 35px;
-  font-family: JetBrainsMono Nerd Font;
-  font-size: 14px;
-}
-
-.tray-item {
-  color: @blue;
-  padding: 0px;
-  margin-left: 10px;
-}
-
-.audio-muted {
-  color: @red;
-}
-
 button {
   color: @blue;
   background-color: transparent;
+  padding: 0;
 }
 
 button:hover {
-  box-shadow: none;
-  text-shadow: none;
-  background: none;
-  transition: none;
-}
-
-/* the slider dot is buggy and hides behind widgets */
-scale slider {
   box-shadow: none;
   text-shadow: none;
   background: none;
@@ -53,6 +27,62 @@ tooltip {
   min-height: 0;
 
 }
+
+/* Music widget css */
+.music-widget {
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 13;
+  color: @text;
+  background-color: @base;
+  border: 2px solid @blue;
+  padding: 20px;
+  min-width: 200px;
+  min-height: 2px;
+}
+
+.music-img {
+  min-width: 200px;
+  min-height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.music-progress highlight{
+  min-height: 5px;
+  border-radius: 20px;
+}
+
+.music-progress trough {
+  border-radius: 20px;
+}
+
+.music-progress slider {
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  transition: none;
+}
+
+/* Bar css */
+.audio-muted {
+  color: @red;
+}
+
+window .bar {
+  color: @blue;
+  background-color: @base;
+  border-bottom: 2px solid @blue;
+  min-height: 35px;
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 14px;
+}
+
+.tray-item {
+  color: @blue;
+  padding: 0px;
+  margin-left: 10px;
+}
+
 
 .volume-slider highlight{
   min-height: 7px;
