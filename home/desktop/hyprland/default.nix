@@ -3,6 +3,8 @@
     ./hyprland-env.nix
     ./hyprpaper.nix
     ./swappy.nix
+    ./hyprlock.nix
+    ./hypridle.nix
   ];
 
   home.packages = with pkgs; [
@@ -29,10 +31,10 @@
         exec-once = [
           "brightnessctl set 50%"
           "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%"
-          "waybar"
+          "blueman-applet"
+          "ags"
           "dunst"
           "hyprpaper"
-          "blueman-applet"
         ];
         debug.disable_logs = false;
         windowrulev2 = [
@@ -108,10 +110,6 @@
           no_gaps_when_only = false;
           pseudotile = true;
           preserve_split = true;
-        };
-
-        master = {
-          new_is_master = true;
         };
       };
   };

@@ -1,5 +1,9 @@
 import { zeroPad } from '../utils/utils.js'
 
+// TODO: when there is no data about the length of the song, don't print it, as it causes this error:
+// GLib-GObject-CRITICAL **: 17:00:56.900: value "inf" of type 'gdouble' is invalid or out of range for property 'value' of type 'gdouble'
+
+
 const mpris = await Service.import("mpris")
 const players = mpris.bind("players")
 export const revealMusic = Variable(false)
@@ -189,8 +193,8 @@ function Media() {
 function Music(monitor = 0) {
   return Widget.Window({
     name: `music-widget-${monitor}`,
-    anchor: [ "top", "right" ],
-    margins: [ 6, 3, 0, 0 ],
+    anchor: [ "top", "left" ],
+    margins: [ 6, 3, 6, 3 ],
     monitor,
     visible: revealMusic.bind(),
     child: Media()

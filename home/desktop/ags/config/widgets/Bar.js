@@ -105,6 +105,7 @@ function TrayItem(item) {
 function Mpris() {
   const excludedPlayers = [ "firefox" ]
 
+  /** @param {import('types/service/mpris').MprisPlayer} player */
   function playerWidget(player) {
     const playerButton = Widget.Button({
       onClicked: () => player.playPause(),
@@ -135,7 +136,8 @@ function Mpris() {
               return
             }
             const { track_artists, track_title, position, length } = player;
-            const artistsFormat = track_artists != [] ? track_artists.join(', ') + " - " : "" 
+
+            const artistsFormat = track_artists[0] != "" ? track_artists.join(', ') + " - " : "" 
             const lengthMins = zeroPad(Math.floor(length / 60), 2)
             const lengthSecs = zeroPad(Math.floor(length % 60), 2)
             const positionMins = zeroPad(Math.floor(position / 60), 2)
@@ -167,7 +169,7 @@ function Mpris() {
 
   function findPlayer(players) {
     const playerctld = players.find(p => p.name == "playerctld" && !excludedPlayers.some(playerName => playerName == p.entry) && p.entry != null && p.can_play != null)
-    const otherPlayer = players.find(p => p.name != "playerctld" && !excludedPlayers.some(playerName => playerName == p.name))
+    const otherPlayer = players.find(p => p.name != "playerctld" && !excludedPlayers.some(playerName => playerName == p.entry))
 
     if (playerctld != undefined) {
       return playerctld
@@ -223,25 +225,17 @@ function Battery() {
 
 function DateTime() {
   const date = Variable('', {
-    poll: [1000, "date"],
+    poll: [1000, `date +"%a, %b %-d %-I:%M %p"`],
   })
 
   return Widget.Label({
-    label: date.bind().as(d => {
-      const dateArray = d.split(" ")
-      const timeArray = dateArray[3].split(":")
-      const dateFormatted = `${dateArray[0]}, ${dateArray[1]} ${dateArray[2]}`
-      const timeFormatted = `${timeArray[0]}:${timeArray[1]}`
-      const dateTime = dateFormatted + " " + timeFormatted
-
-      return dateTime
-    })
+    label: date.bind()
   })
 }
 
 function Workspaces() {
   function dispatchWorkspace(workspace) {
-    hyprland.messageAsync(`hyprctl dispatch ${workspace}`)
+    hyprland.messageAsync(`dispatch workspace ${workspace}`)
   }
 
   return Widget.Box({
@@ -276,7 +270,7 @@ function Workspaces() {
         }
         const urgentWorkspaceId = urgentWindow.workspace.id
         self.children.forEach(btn => { 
-          if (urgentWorkspaceId == btn.attribute) {
+          if (urgentWorkspaceId == btn.attribute && urgentWorkspaceId != hyprland.active.workspace.id) {
             btn.label = ""
             btn.class_names = [
               "workspace-urgent-button",

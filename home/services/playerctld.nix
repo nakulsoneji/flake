@@ -1,5 +1,5 @@
 {pkgs, ...}: {
   home.packages = [pkgs.playerctl];
 
-  services.playerctld.enable = true;
+  services.playerctld.enable = false;
 }

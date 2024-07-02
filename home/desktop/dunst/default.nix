@@ -10,7 +10,7 @@
         width = 300;
         height = 300;
         origin = "top-right";
-        offset = "3x25";
+        offset = "3x6";
         scale = 0;
         notification_limit = 20;
         ### Progress bar ###;

@@ -20,6 +20,8 @@
     };
   };
 
-  security.pam.services.sddm.enableGnomeKeyring = true;
-  security.pam.services.sddm.fprintAuth = true;
+  security.pam.services.sddm = {
+    enableGnomeKeyring = true;
+    fprintAuth = true;
+  };
 }

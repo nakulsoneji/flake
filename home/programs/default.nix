@@ -1,5 +1,6 @@
 {
   imports = [
+    ./social/vesktop.nix
     ./social/discord.nix
 
     ./browsers/firefox

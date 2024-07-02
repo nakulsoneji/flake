@@ -5,10 +5,14 @@
 /*  min-height: 0;*/
 /*}*/
 
+*{
+  font-family: JetBrainsMono Nerd Font;
+}
+
 button {
   color: @blue;
   background-color: transparent;
-  padding: 0;
+  padding: 0px;
 }
 
 button:hover {
@@ -23,15 +27,37 @@ tooltip {
   background-color: @base;
   border: 2px solid @blue;
   border-radius: 0px;
-  min-width: 0;
-  min-height: 0;
+  min-width: 0px;
+  min-height: 0px;
 
+}
+
+
+/* App Launcher css */
+.app-list-scroll {
+  border: 2px solid @blue;
+  border-radius: 0px;
+  background-color: @base;
+}
+
+.app-listing-active {
+  color: @red;
+}
+
+.app-listing {
+  background-color: @mantle;
+  border-radius: 0px;
+}
+
+entry {
+  border-radius: 0px;
+  background-color: @base;
 }
 
 /* Music widget css */
 .music-widget {
   font-family: JetBrainsMono Nerd Font;
-  font-size: 13;
+  font-size: 13px;
   color: @text;
   background-color: @base;
   border: 2px solid @blue;

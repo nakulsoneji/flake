@@ -16,7 +16,7 @@
     "$mod, M, exit, "
     "$mod, E, exec, thunar"
     "$mod, V, togglefloating,"
-    "$mod, R, exec, pkill -x rofi || rofi -show drun"
+    "$mod, R, exec, ags -t launcher"
     "$mod, P, pseudo,"
     "$mod, S, togglesplit,"
     "$mod, F, fullscreen,"

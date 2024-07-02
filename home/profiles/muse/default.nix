@@ -1,10 +1,10 @@
 {
   imports = [
     ../../desktop/hyprland
-    ../../desktop/rofi
     ../../desktop/dunst
-    ../../desktop/waybar
     ../../desktop/ags
+    ../../desktop/rofi
+    ../../desktop/waybar
 
     ../../programs
     ../../programs/files/thunar.nix

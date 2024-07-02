@@ -149,7 +149,7 @@
         enable = true;
         highlight = {
           backdrop = false;
-          groups.backdrop = "";
+          group.backdrop = "";
         };
       };
     };
