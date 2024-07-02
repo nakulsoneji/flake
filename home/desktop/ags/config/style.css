@@ -132,6 +132,19 @@ window .bar {
   color: @yellow;
 }
 
+.powermenu-button {
+  padding: 4px;
+}
+
+button.powermenu-button-primary {
+  padding: 1px 5px 1px 3px;
+}
+
+.powermenu-widget {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
 .widgets-left {
   margin-left: 5px;
 }

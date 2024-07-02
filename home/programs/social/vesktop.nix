@@ -7,7 +7,7 @@
     @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css");
   '';
 
-  xdg.configFile."vesktop/settings/settings.json" = ''
+  xdg.configFile."vesktop/settings/settings.json".text = ''
     {
       "autoUpdate": false,
       "autoUpdateNotification": false,

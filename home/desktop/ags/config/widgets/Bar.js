@@ -102,6 +102,53 @@ function TrayItem(item) {
   });
 }
 
+function PowerMenu() {
+  const revealer = Widget.Revealer({
+    child: Widget.EventBox({
+      child: Widget.Box({
+        children: [
+          Widget.Button({
+            label: "",
+            className: "powermenu-button",
+            onClicked: () => Utils.execAsync("hyprctl dispatch exit")
+          }),
+          Widget.Button({
+            label: "",
+            className: "powermenu-button",
+            onClicked: () => Utils.execAsync("loginctl lock-session")
+          }),
+          Widget.Button({
+            label: "",
+            className: "powermenu-button",
+            onClicked: () => Utils.execAsync("reboot")
+          }),
+        ]
+      }),
+    }),
+    revealChild: false,
+    transitionDuration: 500,
+    transition: 'slide_left',
+  })
+
+  const top = Widget.Button({
+    label: "",
+    classNames: [ "powermenu-button", "powermenu-button-primary" ],
+    onClicked: () => Utils.execAsync("shutdown now"),
+  })
+
+  return Widget.EventBox({
+    className: "powermenu-widget",
+    child: Widget.Box({
+      children: [
+        revealer,
+        top,
+      ]
+    }),
+    onHover: () => revealer.reveal_child = true,
+    onHoverLost: () => revealer.reveal_child = false
+  })
+}
+
 function Mpris() {
   const excludedPlayers = [ "firefox" ]
 
@@ -337,6 +384,7 @@ function Right() {
       Audio(),
       Network(),
       Battery(),
+      PowerMenu()
     ]
   })
 }

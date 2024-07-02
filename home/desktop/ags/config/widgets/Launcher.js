@@ -3,7 +3,6 @@ const WINDOW_NAME = "launcher"
 
 function Apps(width = 300, height = 500, spacing = 8) {
   function createApp(appItem, i) {
-    console.log(i)
     return Widget.Box({
       attribute: {
         app: appItem,
@@ -90,7 +89,6 @@ function Apps(width = 300, height = 500, spacing = 8) {
     switch (event.get_keycode()[1]) {
       case 57:
       case 116:
-        console.log("here")
         apps[visible[selection.getValue()].attribute.id].class_name = "app-listing"
 
         selection.setValue(selection.getValue() + 1)
@@ -126,7 +124,6 @@ function Apps(width = 300, height = 500, spacing = 8) {
         break
 
     }
-    console.log(event.get_keycode())
   })
 
   const scrollableApps = Widget.Scrollable({
