@@ -3,11 +3,12 @@
     enable = true;
     settings = {
       global = {
+        # TODO: get dynamic width to work (aka port back to dunstrc)
         ### Display ###;
         monitor = 0;
         follow = "none";
         ### Geometry ###;
-        width = 500;
+        width = 300;
         height = 300;
         origin = "top-right";
         offset = "3x6";
@@ -50,12 +51,12 @@
         icon_theme = "Papirus";
         icon_position = "left";
         min_icon_size = 32;
-        max_icon_size = 96;
+        max_icon_size = 128;
         ### History ###;
         sticky_history = "yes";
         history_length = 20;
         ### Misc/Advanced ###;
-        dmenu = "${pkgs.fuzzel}/bin/fuzzel --dmenu";
+        dmenu = "${pkgs.fuzzel}/bin/fuzzel -w 50 -l 5 --dmenu";
         browser = "${pkgs.xdg-utils}/bin/xdg-open";
         always_run_script = true;
         title = "Dunst";

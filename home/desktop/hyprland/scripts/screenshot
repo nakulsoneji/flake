@@ -9,7 +9,7 @@
 screenshot_actions () {
   tmpfile=$1
   wl-copy < $tmpfile
-  action=$(notify-send --icon=$tmpfile "Screenshot copied" -A "default,Edit" -A "save,Save")
+  action=$(dunstify --icon=$tmpfile "Screenshot copied" -A "default,Edit" -A "save,Save")
   
   if [[ "$action" != "1" ]] || [[ "$action" != "2" ]]; then
     case $action in
