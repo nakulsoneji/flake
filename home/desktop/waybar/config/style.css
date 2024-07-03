@@ -4,12 +4,13 @@
   border: none;
   min-height: 0px;
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: FontAwesome, JetBrainsMono Nerd Font;
+  /* propo font expands nerd font icons and fixes spacing - variable width */
   font-style: normal;
   font-size: 14px;
 }
 
 window#waybar {
+  font-family: FontAwesome, JetBrainsMono Nerd Font Propo;
   background-color: @base;
   color: @blue;
   border-bottom: 2px solid @blue;
@@ -35,40 +36,13 @@ tooltip {
 }
 
 /* fix active workspce button not being aligned */
-#workspaces button.active {
-  margin: 0px 3px 0px -3px;
-}
-
-/*#window {*/
-/*  background-color: @base;*/
-/*  border: 2px solid @blue;*/
-/*  margin-left: 10px;*/
-/*  margin-right: 10px;*/
-/*  padding-right: 5px;*/
-/*  padding-left: 5px;*/
-/*}*/
-/**/
-/*window#waybar.empty #window {*/
-/*  background-color: transparent;*/
-/*  border: none;*/
+/*#workspaces button.active {*/
+/*  margin: 0px 3px 0px -3px;*/
 /*}*/
 
 #mpris {
   margin-left: 10px;
 }
-
-/*#tray {*/
-/*	background-color: @base;*/
-/*  border: 2px solid @blue;*/
-/*  margin-right: 10px;*/
-/*}*/
-
-/*#info-group {*/
-/*	background-color: @base;*/
-/*  border: 2px solid @blue;*/
-/*  margin-right: 10px;*/
-/*  padding: 0px 7px 0px 7px;*/
-/*}*/
 
 .modules-left {
   margin-left: 5px;
@@ -79,11 +53,20 @@ tooltip {
 } 
 
 .power-control-child > * {
-  margin-right: 9px;
+  margin-right: 7px;
+}
+
+#power-control > * {
+  font-family: JetBrainsMono Nerd Font;
+  padding: 0px;
+}
+
+window #power-control {
+  padding-right: 2px;
 }
 
 #workspaces button.urgent {
-  color: @red;
+  color: @yellow;
 }
 
 #mode {
@@ -118,27 +101,15 @@ tooltip {
   background-color: transparent;
 }
 
-#battery {
-  margin-right: 5px;
-}
 
-#battery.charging, #battery.plugged {
+#battery.charging, 
+#battery.plugged,
+#battery.full.plugged {
   color: @green;
-}
-
-@keyframes blink {
-  to {
-    background-color: #ffffff;
-    color: #000000;
-  }
 }
 
 #battery.critical:not(.charging) {
   color: @red;
-}
-
-label:focus {
-  background-color: #000000;
 }
 
 #network.disconnected {
@@ -172,7 +143,4 @@ label:focus {
 
 #mpd.paused {
   background-color: #51a37a;
-}
-#scratchpad {
-  background: rgba(0, 0, 0, 0.2);
 }

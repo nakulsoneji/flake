@@ -9,9 +9,9 @@ App.config({
   windows: [
     Bar(),
     Music(), 
-    launcher,
-    actionLauncher,
-    Notifications()
+    //launcher,
+    //actionLauncher,
+    //Notifications()
   ]
 })
 

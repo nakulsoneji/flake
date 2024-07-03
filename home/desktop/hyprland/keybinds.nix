@@ -16,7 +16,7 @@
     "$mod, M, exit, "
     "$mod, E, exec, thunar"
     "$mod, V, togglefloating,"
-    "$mod, R, exec, ags -t launcher"
+    "$mod, R, exec, pkill -x fuzzel || fuzzel"
     "$mod, P, pseudo,"
     "$mod, S, togglesplit,"
     "$mod, F, fullscreen,"

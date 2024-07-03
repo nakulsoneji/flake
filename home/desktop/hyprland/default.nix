@@ -32,7 +32,7 @@
           "brightnessctl set 50%"
           "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%"
           "blueman-applet"
-          "ags"
+          "waybar"
           "dunst"
           "hyprpaper"
         ];

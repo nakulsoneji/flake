@@ -9,7 +9,7 @@
   "margin-right": 0,
   "modules-left": ["hyprland/workspaces", "mpris" ],
   "modules-center": [ "clock" ],
-  "modules-right": [ "group/info-group", "group/power-control" ],
+  "modules-right": [ "tray", "network", "pulseaudio", "battery", "group/power-control" ],
   "hyprland/workspaces": {
     "active-only": false,
     "all-outputs": false,
@@ -81,7 +81,7 @@
   "clock": {
     // "timezone": "America/New_York",
     "tooltip-format": "<tt>{calendar}</tt>",
-    "format": "{:%a, %b %e %I:%M %p}",
+    "format": "{:%a, %b %d %I:%M %p}",
     "format-alt": "{:%Y-%m-%d}",
     "calendar": {
       "mode": "month",
@@ -116,26 +116,40 @@
     "format-icons": ["", "", "", "", "", "", "", "", ""]
   },
   "battery": {
+    "interval": 1,
     "states": {
-      // "good": 95,
+      "good": 90,
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon}  {capacity}%",
-    "format-charging": "󰂅  {capacity}%",
-    "format-plugged": "  {capacity}%",
-    "format-alt": "{icon}  {time}",
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰂄 {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-good": "hello",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
-    "format-icons": ["", "", "", "", ""],
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
   },
   "network": {
-    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-wifi": " {essid} ({signalStrength}%)",
     "format-ethernet": "  {ifname}",
     "format-disconnected": "⚠ Disconnected",
-    "tooltip-format": "{ipaddr}/{cidr}",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
     "tooltip-format-disconnected": "⚠ Disconnected",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "format-alt": "{ipaddr}/{cidr}"
   },
   "upower": {
     "default": "/org/freedesktop/UPower/devices/battery_BAT0",
@@ -146,12 +160,9 @@
     "format": " {percentage}"
   },
   "mpris": {
+    "interval": 1,
     "format": "{status_icon} {dynamic}",
     "format-paused": "{status_icon} {dynamic}",
-    "player-icons": {
-      "default": "▶",
-      "mpv": "🎵"
-    },
     "status-icons": {
       "paused": "",
       "playing": "",
@@ -165,15 +176,15 @@
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} {volume}%",
     "format-bluetooth-muted": "{icon} {volume}%",
-    "format-muted": "  {volume}%",
+    "format-muted": "{icon} {volume}%",
     "format-icons": {
-      "headphone": " ",
-      "hands-free": " ",
-      "headset": " ",
-      "phone": " ",
-      "portable": " ",
-      "car": " ",
-      "default": ["", " ", " "]
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
     },
     "on-click": "pavucontrol"
   },
@@ -196,6 +207,7 @@
     "modules": [
       "custom/power", // First element is the "group leader" and won't ever be hidden
       "custom/quit",
+      "custom/lock",
       "custom/reboot",
     ]
   },
@@ -203,6 +215,11 @@
     "format": " ",
     "tooltip": false,
     "on-click": "hyprctl dispatch exit"
+  },
+  "custom/lock": {
+    "format": " ",
+    "tooltip": false,
+    "on-click": "loginctl lock-session"
   },
   "custom/reboot": {
     "format": " ",

@@ -2,8 +2,6 @@
   imports = [
     ../../desktop/hyprland
     ../../desktop/dunst
-    ../../desktop/ags
-    ../../desktop/rofi
     ../../desktop/waybar
     ../../desktop/fuzzel
 
