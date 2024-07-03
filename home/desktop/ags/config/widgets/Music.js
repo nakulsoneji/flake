@@ -41,13 +41,20 @@ function Player(player) {
     setup: self => {
       function update() {
         const { position, length } = player;
+        const positionMins = zeroPad(Math.floor(position / 60), 2)
+        const positionSecs = zeroPad(Math.floor(position % 60), 2)
+        const positionFormat = `${positionMins}:${positionSecs}`
+
+        if (length == undefined) {
+          self.value = 0;
+          self.marks = [
+            [0, `${positionFormat}`, "bottom"],
+          ]
+          return
+        }
 
         const lengthMins = zeroPad(Math.floor(length / 60), 2)
         const lengthSecs = zeroPad(Math.floor(length % 60), 2)
-        const positionMins = zeroPad(Math.floor(position / 60), 2)
-        const positionSecs = zeroPad(Math.floor(position % 60), 2)
-  
-        const positionFormat = `${positionMins}:${positionSecs}`
         const lengthFormat = `${lengthMins}:${lengthSecs}`
         
         self.value = position / length

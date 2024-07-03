@@ -10,7 +10,7 @@ function Apps(width = 300, height = 500, spacing = 8) {
       },
       spacing: spacing,
       canFocus: false,
-      className: "app-listing",
+      className: "picker-listing",
       css: `padding: ${spacing}px`,
       children: [
         Widget.Icon({
@@ -39,19 +39,19 @@ function Apps(width = 300, height = 500, spacing = 8) {
     spacing: spacing,
     canFocus: false,
     children: applications.bind().as(apps => {
-      apps[selection.getValue()].class_names = [ "app-listing", "app-listing-active" ]
+      apps[selection.getValue()].class_names = [ "picker-listing", "picker-listing-active" ]
       return apps
     })
   })
 
   const search = Widget.Entry({
     visibility: true,
-    className: "app-list-search",
+    className: "picker-list-search",
     onChange: ({ text }) => {
       const apps = applications.getValue()
       apps.forEach(a => {
         a.visible = a.attribute.app.match(text)
-        a.class_name = "app-listing"
+        a.class_name = "picker-listing"
       })
 
       const visible = apps.filter(a => a.visible)
@@ -61,7 +61,7 @@ function Apps(width = 300, height = 500, spacing = 8) {
       if (selection.getValue() >= visible.length) {
         selection.setValue(visible.length - 1)
       }
-      apps[visible[selection.getValue()].attribute.id].class_names = [ "app-listing", "app-listing-active" ]
+      apps[visible[selection.getValue()].attribute.id].class_names = [ "picker-listing", "picker-listing-active" ]
     },
     onAccept: async () => {
       const apps = applications.getValue()
@@ -89,22 +89,22 @@ function Apps(width = 300, height = 500, spacing = 8) {
     switch (event.get_keycode()[1]) {
       case 57:
       case 116:
-        apps[visible[selection.getValue()].attribute.id].class_name = "app-listing"
+        apps[visible[selection.getValue()].attribute.id].class_name = "picker-listing"
 
         selection.setValue(selection.getValue() + 1)
         if (selection.getValue() >= visible.length) {
           selection.setValue(visible.length - 1)
         }
-        apps[visible[selection.getValue()].attribute.id].class_names = [ "app-listing", "app-listing-active" ]
+        apps[visible[selection.getValue()].attribute.id].class_names = [ "picker-listing", "picker-listing-active" ]
         break
       case 33:
       case 111:
-        apps[visible[selection.getValue()].attribute.id].class_name = "app-listing"
+        apps[visible[selection.getValue()].attribute.id].class_name = "picker-listing"
         selection.setValue(selection.getValue() - 1)
         if (selection.getValue() < 0) {
           selection.setValue(0)
         }
-        apps[visible[selection.getValue()].attribute.id].class_names = [ "app-listing", "app-listing-active" ]
+        apps[visible[selection.getValue()].attribute.id].class_names = [ "picker-listing", "picker-listing-active" ]
         break
       case 30:
         if (scrollableApps.vadjustment.value <= scrollableApps.vadjustment.get_lower()) {
@@ -127,7 +127,7 @@ function Apps(width = 300, height = 500, spacing = 8) {
   })
 
   const scrollableApps = Widget.Scrollable({
-    className: "app-list-scroll",
+    className: "picker-list-scroll",
     canFocus: false,
     hscroll: "never",
     css: `min-width: ${width}px; min-height: ${height}px; padding: ${spacing}px`,

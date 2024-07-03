@@ -7,6 +7,10 @@
     inputs.ags.homeManagerModules.default
   ];
 
+  home.packages = with pkgs; [
+    libnotify
+  ];
+
   programs.ags = {
     enable = true;
     configDir = ./config;

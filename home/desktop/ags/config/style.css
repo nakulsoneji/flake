@@ -5,7 +5,7 @@
 /*  min-height: 0;*/
 /*}*/
 
-*{
+* {
   font-family: JetBrainsMono Nerd Font;
 }
 
@@ -32,19 +32,90 @@ tooltip {
 
 }
 
+/* Notification css */
+.notification {
+  background-color: @base;
+  border: 2px solid @blue;
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 14px;
+  min-width: 350px;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.notification.notification-critical .notification-icon {
+  color: @peach;
+}
+
+.notification.notification-critical {
+  border: 2px solid @peach;
+}
+
+.notification-window,
+.notification-list {
+  background-color: transparent;
+}
+
+/*.notification-list * {*/
+/*  background-color: @base;*/
+/*  border-radius: 0px;*/
+/*}*/
+
+.notification-icon {
+  color: @blue;
+  min-width: 32px;
+  min-height: 32px;
+  margin-right: 0.5em;
+}
+
+.notification-icon image {
+  font-size: 96px;
+  border-radius: 0px;
+  margin: 5px;
+}
+
+.notification-icon icon {
+  min-width: 96px;
+  min-height: 96px;
+}
+
+.notification-icon box {
+  min-width: 96px;
+  min-height: 96px;
+  border-radius: 0px;
+}
+
+.notification-title {
+  font-weight: bold;
+}
+
+.notification-actions-button {
+  background-color: @surface0;
+  color: @text;
+  border-radius: 5px;
+}
+
+.notification-actions-button:hover {
+  background-color: @surface1;
+}
+
+
+.notification-actions {
+  padding: 0.5em;
+}
 
 /* App Launcher css */
-.app-list-scroll {
+.picker-list-scroll {
   border: 2px solid @blue;
   border-radius: 0px;
   background-color: @base;
 }
 
-.app-listing-active {
+.picker-listing-active {
   color: @red;
 }
 
-.app-listing {
+.picker-listing {
   background-color: @mantle;
   border-radius: 0px;
 }

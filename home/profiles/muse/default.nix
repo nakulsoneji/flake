@@ -5,6 +5,7 @@
     ../../desktop/ags
     ../../desktop/rofi
     ../../desktop/waybar
+    ../../desktop/fuzzel
 
     ../../programs
     ../../programs/files/thunar.nix
