@@ -16,7 +16,11 @@
       v = "fd --hidden --type f --exclude .git | fzf --height 40% --reverse | xargs nvim";
       cat = "bat";
     };
+    # autostart ssh agent
     initExtra = ''
+      if [ $(ps ax | grep "[s]sh-agent" | wc -l) -eq 0 ] ; then
+          eval $(ssh-agent -s) > /dev/null
+      fi
       autoload -U promptinit; promptinit
       prompt pure
 
@@ -26,12 +30,5 @@
 
       nitch
     '';
-  };
-
-  programs.zsh.oh-my-zsh = {
-    enable = true;
-    plugins = [
-      "ssh-agent"
-    ];
   };
 }

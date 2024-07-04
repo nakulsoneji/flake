@@ -12,8 +12,19 @@
         style = "block";
         unfocused-style = "hollow";
       };
+      key-bindings = {
+        scrollback-up-page = "Control+Page_Up";
+        scrollback-down-page = "Control+Page_Down";
+        scrollback-up-half-page = "Control+u";
+        scrollback-down-half-page = "Control+d";
+        scrollback-up-line = "Control+k";
+        scrollback-down-line = "Control+j";
+      };
       mouse = {
         hide-when-typing = "yes";
+      };
+      scrollback = {
+        indicator-position = "none";
       };
       colors = {
         foreground = "cdd6f4";

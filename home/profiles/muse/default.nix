@@ -15,7 +15,6 @@
 
     ../../terminal/programs
     ../../terminal/shell/zsh.nix
-    ../../terminal/emulators/kitty
     ../../terminal/emulators/foot.nix
 
     ../../editors/nixvim.nix

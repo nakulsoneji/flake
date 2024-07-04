@@ -12,7 +12,7 @@
       userName = "nakulsoneji@gmail.com";
       realName = "Nakul Soneji";
       flavor = "gmail.com";
-      passwordCommand = "bw get item 'Google Main' | jq -r '.fields[0].value'";
+      passwordCommand = "rbw get 'Google Main' -f 'App Password'";
       aerc = {
         enable = true;
       };
