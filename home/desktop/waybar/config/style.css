@@ -35,6 +35,10 @@ tooltip {
   transition: none;
 }
 
+#workspaces button.special {
+  color: @text;
+}
+
 /* fix active workspce button not being aligned */
 /*#workspaces button.active {*/
 /*  margin: 0px 3px 0px -3px;*/

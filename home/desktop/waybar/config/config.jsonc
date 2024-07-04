@@ -12,7 +12,7 @@
   "modules-right": [ "tray", "network", "pulseaudio", "battery", "group/power-control" ],
   "hyprland/workspaces": {
     "active-only": false,
-    "all-outputs": false,
+    "all-outputs": true,
     "disable-scroll": false,
     "on-scroll-up": "hyprctl dispatch workspace -1",
     "on-scroll-down": "hyprctl dispatch workspace +1",
@@ -22,6 +22,7 @@
       "urgent": "",
       "active": "",
       "default": "󰧞",
+      "special": "",
       "sort-by-number": true
     },
     "persistent-workspaces": {
@@ -126,7 +127,6 @@
     "format-charging": "󰂄 {capacity}%",
     "format-plugged": "󰂄 {capacity}%",
     "format-alt": "{icon} {time}",
-    "format-good": "hello",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
     "format-icons": [

@@ -4,10 +4,13 @@
     server.enable = true;
     settings = {
       main = {
-        term = "xterm-256color";
-
-        font = "JetBrainsMono Nerd Font:size=7";
-        dpi-aware = "yes";
+        font = "JetBrainsMono Nerd Font-13:demibold";
+        font-bold = "JetBrainsMono Nerd Font-13:bold";
+        font-italic = "JetBrainsMono Nerd Font-13:demibold:italic";
+      };
+      cursor = {
+        style = "block";
+        unfocused-style = "hollow";
       };
       mouse = {
         hide-when-typing = "yes";

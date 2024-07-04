@@ -7,6 +7,9 @@
       modernx-zydezu
       thumbfast
     ];
+    config = {
+      osd-bar = "no";
+    };
   };
 
   home.packages = with pkgs; [
