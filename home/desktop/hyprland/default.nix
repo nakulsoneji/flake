@@ -44,6 +44,11 @@
           "float, class:^(pavucontrol|.blueman-manager-wrapped)$"
           "size 40% 40%, class:^(pavucontrol|.blueman-manager-wrapped)$"
         ];
+        layerrule = [
+          "animation popin,selection"
+          "animation popin,launcher"
+          "noanim,hyprpicker"
+        ];
         workspace = [
           "1, on-created-empty: firefox"
           "special:scratchpad, on-created-empty: discord"
