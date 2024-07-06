@@ -1,7 +1,7 @@
 {
   imports = [
     ./fwupd.nix
-    ./opengl.nix
+    ./graphics.nix
     ./bluetooth.nix
   ];
 }

@@ -10,6 +10,10 @@
     git
   ];
 
+  environment.variables = {
+    MY_TEST = "hello";
+  };
+
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
   };

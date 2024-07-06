@@ -16,7 +16,7 @@
         ../system/programs/hyprland.nix
         ../system/programs/steam.nix
         ../system/programs/gamemode.nix
-        ../system/services/greetd.nix
+        ../system/services/sddm.nix
         {
           home-manager = {
             users.nakul.imports = homeImports."nakul@muse";

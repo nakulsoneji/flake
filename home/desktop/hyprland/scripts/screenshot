@@ -17,8 +17,10 @@ screenshot_actions () {
         swappy -f $tmpfile
         ;;
       save)
-        imgfile=$XDG_SCREENSHOTS_DIR/"screenshot-$(date +"%s.png")"
-        cp $tmpfile $imgfile
+        imgfile="$XDG_SCREENSHOTS_DIR/screenshot-$(date +"%s.png")"
+        dunstify "$imgfile" "imgfile"
+        cp $tmpfile $imgfile &> $HOME/log
+        dunstify $?
     esac
   fi
 
@@ -35,7 +37,7 @@ if [[ "$1" == "r" ]]; then
     exit 1
   fi
 
-elif [[ "$1" == "f" ]]; then
+elif [[ "$1" != "r" ]]; then
   tmpfile=$(mktemp /tmp/grim-img-XXXXXX)
 
   if grim $tmpfile; then

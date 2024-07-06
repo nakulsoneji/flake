@@ -19,7 +19,7 @@
     # autostart ssh agent
     initExtra = ''
       if [ $(ps ax | grep "[s]sh-agent" | wc -l) -eq 0 ] ; then
-          eval $(ssh-agent -s) > /dev/null
+        eval $(ssh-agent -s) > /dev/null
       fi
       autoload -U promptinit; promptinit
       prompt pure

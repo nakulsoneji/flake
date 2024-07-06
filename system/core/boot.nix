@@ -26,5 +26,8 @@
       ];
       theme = "catppuccin-mocha";
     };
+    tmp = {
+      cleanOnBoot = true;
+    };
   };
 }

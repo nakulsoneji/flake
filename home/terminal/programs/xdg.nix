@@ -13,6 +13,13 @@
         XDG_RECORDINGS_DIR = "${config.xdg.userDirs.videos}/Recordings";
       };
     };
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "inode/directory" = ["thunar.desktop"];
+        "text/html" = ["firefox.desktop"];
+      };
+    };
   };
 
   home.packages = with pkgs; [

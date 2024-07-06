@@ -20,6 +20,9 @@
         scrollback-up-line = "Control+k";
         scrollback-down-line = "Control+j";
       };
+      search-bindings = {
+        cursor-right = "Right";
+      };
       mouse = {
         hide-when-typing = "yes";
       };

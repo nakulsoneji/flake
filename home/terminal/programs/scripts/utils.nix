@@ -1,6 +1,14 @@
 {pkgs, ...}: let
   scripts = [
     (pkgs.writeShellApplication {
+      name = "catimg";
+
+      runtimeInputs = with pkgs; [imagemagick];
+
+      text = ''magick "$1" sixel:-'';
+    })
+
+    (pkgs.writeShellApplication {
       name = "check-out";
 
       runtimeInputs = with pkgs; [eza];

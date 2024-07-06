@@ -4,6 +4,8 @@
 
     ./browsers/firefox
 
+    ./files/thunar.nix
+
     ./media
 
     ./ui.nix

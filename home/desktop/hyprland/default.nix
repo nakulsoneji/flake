@@ -24,7 +24,7 @@
     systemd.enable = true;
     settings =
       (import ./catppuccin-hyprland.nix)
-      // (import ./keybinds.nix)
+      // (import ./keybinds.nix {inherit pkgs;})
       // {
         monitor = ",highres,auto,1";
 
@@ -45,7 +45,7 @@
           "size 40% 40%, class:^(pavucontrol|.blueman-manager-wrapped)$"
         ];
         layerrule = [
-          "animation popin,selection"
+          "noanim,selection"
           "animation popin,launcher"
           "noanim,hyprpicker"
         ];
@@ -156,9 +156,5 @@
 
   home.file."Pictures/wallpapers" = {
     source = ./wallpapers;
-  };
-
-  xdg.configFile."hypr/scripts" = {
-    source = ./scripts;
   };
 }

@@ -1,0 +1,6 @@
+- home.sessionVariables adds variables to "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh"
+- the way this is sourced means that the compositor (hyprland) is unable to access it 
+- env vars are still accessible through the shell, through
+- luckily, sddm will source these shell vars prior to launch, which is why we are using it
+- i would prefer tuigreet, but we will have to wait for a fix (technically i can source hm-session-vars.sh, but i would rather just wait for a better solution)
+https://github.com/nix-community/home-manager/issues/2659

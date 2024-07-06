@@ -4,6 +4,10 @@
     inputs.nix-index-database.hmModules.nix-index
   ];
 
+  home.sessionVariables = {
+    MY_TEST_HOME = "test";
+  };
+
   home = {
     username = "nakul";
     homeDirectory = "/home/nakul";

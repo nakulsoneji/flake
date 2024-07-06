@@ -1,13 +1,13 @@
-{
+{pkgs, ...}: {
   "$mod" = "SUPER";
-  "$scripts" = "~/.config/hypr/scripts";
 
   bind = [
-    "$mod SHIFT, P, exec, $scripts/picker"
-    "$mod SHIFT, S, exec, $scripts/screenshot r"
-    "$mod, Print, exec, $scripts/screenshot f"
-    "$mod SHIFT, R, exec, $scripts/record r"
-    "$mod SHIFT, Print, exec, $scripts/record f"
+    "$mod SHIFT, P, exec, ${pkgs.hyprpicker}/bin/hyprpicker -a"
+    "$mod SHIFT, S, exec, wayland-screenshot r"
+    "$mod, Print, exec, wayland-screenshot f"
+    "$mod SHIFT, Print, exec, bash -c printenv &> '/home/nakul/logenv'"
+    "$mod SHIFT, R, exec, wayland-record r"
+    # "$mod SHIFT, Print, wayland-record f"
     "$mod, N, exec, dunstctl context"
     "$mod SHIFT, N, exec, dunstctl close-all"
     ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"

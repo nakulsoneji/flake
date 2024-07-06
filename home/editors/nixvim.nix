@@ -147,9 +147,11 @@
       nvim-autopairs.enable = true;
       flash = {
         enable = true;
-        highlight = {
-          backdrop = false;
-          group.backdrop = "";
+        settings = {
+          highlight = {
+            backdrop = false;
+            group.backdrop = "";
+          };
         };
       };
     };
